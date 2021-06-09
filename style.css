@@ -15,6 +15,17 @@
     margin: auto;
     margin-top: 10px;
 }
+caption{
+font-size: 25pt;
+}
+
+table{
+    border: 1px solid #444444;
+    width: 500px;
+    table-layout: auto;
+    border-collapse : collapse;
+
+}
 
 td{
     background-color: rgb(255, 255, 255);
@@ -52,4 +63,5 @@ input[type="time"]{
     width: 60px;
     height: 25px;
 }
+
 /**html**/

@@ -16,11 +16,12 @@
             <form action="javascript:void(0)" method="post" onsubmit="app.Add()">
                 할 일 : <input type="text" id="add-todo" placeholder="Thing To-do">
                 예정 시각 : <input type="time" id="add-time">
-                <input type="submit" value="추가">
+                <input type="submit" value="추가" onclick="saveTime()">
             </form>
+            
             <table>
                 <tr class="to-do">
-                    <th><h2> To-Do : </h2></th>
+                    <caption>To - do</caption>
                 </tr>
                 <tbody id="tasks">
                 </tbody>
@@ -30,6 +31,7 @@
         <div id="edit-box" role="aria-hidden">
             <form action="javascript:void(0);" method="post" id="save-edit">
                 <input type="text" id="edit-todo">
+                <input type="time" id="edit-time">
                 <input type="submit" value="저장">
                 <a onclick="CloseInput()" aria-label="Close"> &#10006; </a>
             </form>
