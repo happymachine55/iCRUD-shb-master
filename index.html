@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>To-Do List</title>
+
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <div class="title">
+            <h1>To-Do List</h1>
+        </div>
+
+        <div class="form">
+            <form action="javascript:void(0)" method="post" onsubmit="app.Add()">
+                할 일 : <input type="text" id="add-todo" placeholder="Thing To-do">
+                예정 시각 : <input type="time" id="add-time">
+                <input type="submit" value="추가">
+            </form>
+            <table>
+                <tr class="to-do">
+                    <th><h2> To-Do : </h2></th>
+                </tr>
+                <tbody id="tasks">
+                </tbody>
+            </table>
+        </div>
+
+        <div id="edit-box" role="aria-hidden">
+            <form action="javascript:void(0);" method="post" id="save-edit">
+                <input type="text" id="edit-todo">
+                <input type="submit" value="저장">
+                <a onclick="CloseInput()" aria-label="Close"> &#10006; </a>
+            </form>
+        </div>
+        
+        <script src="script.js"></script>
+        
+    </body>
+</html>

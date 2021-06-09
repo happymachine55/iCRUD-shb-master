@@ -1,0 +1,55 @@
+.title{
+    text-align: center;
+    margin-top: 25px;
+}
+
+.form{
+    margin:auto;
+    max-width: 80%;
+    text-align: center;
+}
+
+#edit-box{
+    display: none;
+    max-width: 80%;
+    margin: auto;
+    margin-top: 10px;
+}
+
+td{
+    background-color: rgb(255, 255, 255);
+    padding-right: 10px;
+    text-align: left;
+    padding: 0px;
+}
+
+body {
+    font-family: 'Nanum Pen Script', cursive;
+}
+
+input[type="text"]{
+    width: 50;
+    height: 20;
+    margin-right: 3px;
+    padding: 10px;
+
+}
+
+input[type="time"]{
+    width: 50;
+    height: 20;
+    margin-right: 3px;
+    padding: 10px;
+}
+
+
+.edit-button{
+    width: 60px;
+    height: 25px;
+}
+
+.delete-button{
+    width: 60px;
+    height: 25px;
+}
+/**html**/
