@@ -1,35 +1,60 @@
 var app = new function () {
-    this.el = document.getElementById('tasks');
-    this.tasks = [];
-
+    this.elem = document.querySelector("#tasks");
+    
+    var form = (title, time) => {
+        return {
+            title: title,
+            time: {
+                hour: time[0],
+                min: time[1],
+                sec: time[2]
+            }
+        };
+    };
+    
+    if (!this.tasks)
+        this.tasks = [];
 
     this.FetchAll = function () {
-        var elem = document.querySelector("#tasks");
-        
-        var data;
+        // var elem = document.querySelector("#tasks");
+        var elem = this.tasks;
 
-        for (i = 0, data = ""; i < this.tasks.length; i++) {
-            data += '<tr>';
-            data += '<td>' + (i + 1) + '. ' + this.tasks[i] + '</td>';
-            data += '<td><button onclick="app.Edit(' + i + ')" class=edit-button>수정</button></td>';
-            data += '<td><button onclick="app.Delete(' + i + ')" class=delete-button>삭제</button></td>';
-            data += '<tr>';
-            data += '</tr>';
-        }
+        var data = "";
+
+        this.tasks.forEach((item, i) => {
+            var temp = "";
+            
+            temp += '<tr>';
+            temp += '<td>' + (i + 1) + '. ' + item + '</td>';
+            temp += '<td><button onclick="app.Edit(' + i + ')" class=edit-button>수정</button></td>';
+            temp += '<td><button onclick="app.Delete(' + i + ')" class=delete-button>삭제</button></td>';
+            temp += '<tr>';
+            temp += '</tr>';
+
+            data += temp;
+        });
+
+        console.log([this.tasks, data]);
 
         // this.el.innerHTML = data;
-        elem.innerHTML = data;
+        // elem.innerHTML = data;
+        document.querySelector("#tasks").innerHTML = data;
 
         return data;
     };
 
 
     this.Add = function () {
-        let el = document.getElementById('add-todo');
-        var task = el.value;
+        var task = document.getElementById('add-todo').value;
+        // var elem = document.querySelector()
+        var elem = this.tasks;
+                
+        console.log(task);
+        
         if (task) {
             this.tasks.push(task.trim());
-            this.el.value = '';
+            // this.el.value = '';
+            elem.value = '';
             this.FetchAll();
         }
     };
@@ -39,8 +64,7 @@ var app = new function () {
         // document.querySelectorAll(<CSS 지정자>);
         // document.querySelector(<CSS 지정자>);
 
-        this.el = document.getElementById('edit-todo');
-        this.el.value = this.tasks[item];
+        document.getElementById('edit-todo').value = this.tasks[item];
 
         document.getElementById('edit-box').style.display = 'block';
 
@@ -53,7 +77,7 @@ var app = new function () {
             var task = document.querySelector("#edit-todo").value; // 엘리먼트의 포인터를 가져옴.
 
             self = app;
-            
+
             if (task) { // if 엘리먼트 포인터를 받아오는데 성공했다면
                 self.tasks.splice(item, 1, task.trim());
                 self.FetchAll();
